@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header { display:block;}
+
+
+
+/*
+:root {
+  --custom_white: #F6F6F6;
+  --custom_dark: #2B2B2B;
+  --custom_red: #DE1B1B;
+  --custom_accent: #E9E581;
+}
+*/
+
+body, html {
+	color: #2B2B2B;
+	background-color: #F6F6F6;
+	height: 100%;
+	font-size: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+
+#head_banner {
+	display: block;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	color: #F6F6F6;
+	background-color: #272727;
+	height: 70px;
+	font-size: 100%;
+}
+
+#menubar {
+	display: block;
+	position: fixed;
+	color: #F6F6F6;
+	background-color: #272727;
+	top: 0;
+	right: 15%;
+}
+
+
+#title {
+	position: relative;
+	display: block;
+	height: 80%;
+	margin-top: 7px;	
+}
+
+#suburbForm {
+	position: absolute;
+	display: block;
+	height: 80%;
+	left: 50%;
+	top: 30%;	
+}
+
+#map_key {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	color: #F6F6F6;
+	background-color: #272727;
+	height: 50px;
+	font-size: 100%;
+}
+
+
+
+#sidebar {
+	display:block;
+	color: #F6F6F6;
+	background-color: #272727;
+	font-size: 100%;
+	position:absolute;
+    top:50px;
+    left:0;
+    bottom:0;
+    
+    width: 200px;
+}
+
+
+#map_container {
+	position: fixed;
+	display: block;
+	height:100%;
+    top:70px;
+    left:0px;
+    bottom: 50px;
+    right:0;	
+}

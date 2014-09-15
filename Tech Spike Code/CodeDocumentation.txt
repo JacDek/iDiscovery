@@ -1,0 +1,145 @@
+------------------------------Root Directory (/)-------------------------------
+
+	
+CodeDocumentation.txt
+	Status: Current
+	Desc: Text file recording current and deprecated source code
+	
+HowToUseTheCrimeAPI.docx
+	Status:
+	Desc: QPS api manual
+
+index.html
+	Status: Current
+	Desc: Home page of website. Access to profile page. Displays google 
+	map, which currently shows crime data for ST LUCIA. Partially functional
+	search bar (for suburb query).
+	
+profile.html
+	Status: Current
+	Desc: Displays crime data from qps api and census data from database
+	using google charts, other methods. Currently displays chart of St Lucia
+	crime data.
+	
+profile_style_1old.css
+	Status: Deprecated
+	Desc: Old style script for profile.html
+	
+
+------------------------------Javascript Files (/js)---------------------------------
+
+################ Index.js ################
+
+initialize
+	Status: Current
+	Desc: 
+
+asynchronous 2nd function
+	Status: Current
+	Desc: For loading map and crime data.
+
+####Documentation for code taken from Deco3800 prototype################	
+addPolygons(json, map, polyList)
+	Status: Current
+	Input: (java Object) retrieved json crime data from crime api, (Google Map Object) map ,(array of Google Polygon Objects) list of polygons currently on given map parameter. 
+	Output: Creates a polygon border for every geographical boundary it gets from JSON. Also makes the polys click-able and to display summary of crime within that boundary.
+	Desc: It the critical function for displaying crime data on the map as a click-able heatmap.
+	
+formatOffences(array)	
+	Status: Current
+	Input: (array) Array of offences for a specific geographical area from the crime api.
+	Output: (string)Returns html table of formatted data showing total crimes and crimes ordered by number of reports.
+	Desc: Function used to create content for the info bubble that show when a poly on the map is clicked.
+	
+resolveOffenseCode(id)
+	Status: Current
+	Input: (integer) crime id from crime api
+	Output: (string) Returns the name of crime with that ID. Sourced from crime API documentation.
+	Desc: Function used to turn the crime id's into readable names
+		
+resolveColour(num)
+	Status: Current
+	Input: (integer) Number of crimes in a particular geographic area.
+	Output: (string) html hex colour
+	Desc: Function used to decide what colours different parts of the heatmap are going to be. e.g. <5 crimes is blue but >90 crimes is red.
+	
+parseGeoWKT(string)
+	Status: Current
+	Input: (string) GeoWKT coordinates from crime api json
+	Output: (google.maps.LatLng) First latlong coord in the string list
+	Desc: Function not very useful as other GEOWKT functions	
+
+averageGeoWKT(string)
+	Status: Current
+	Input: (string) GeoWKT coordinates from crime api json
+	Output: (google.maps.LatLng) Returns the average of all the coords in the list.
+	Desc: Function useful for centering the map or a suburb
+
+polyGeoWKT(string)
+	Status: Current
+	Input: (string) GeoWKT coordinates from crime api json
+	Output: (Array) Returns a list of google.maps.LatLng coordinates equivalent to the input string list.
+	Desc: Function useful for centering the map or a suburb
+#####end of deco3800 documentation###############
+
+################ Profile.js ################
+///All current javascript code for profile.html. Combined implementation of crimeapi.js	and profile2.js
+//Loads google visualization package, runs set SuburbQuery on load.
+
+setSuburbQuery()
+	Status: Current
+	Input: Will take suburb name input. Currently takes suburb as ST Lucia
+	Desc: Prepares suburb name input and QPS api query link. Sends link to 
+	suburbID()
+	
+setDataQuery(id)
+	Status: Current	
+	Input: suburb id returned by suburbID()
+	Desc: Sets up query link for for crime types query, sends it to crimeType.
+	
+suburbID(query)
+	Status: Current	
+	Input: query (qps api link)
+	Desc: jQuery getJSON from qps link, returns JSON that includes the suburb
+		id at data.Result[0].QldSuburbId. Sends result to setDataQuery.
+
+crimeType(query)
+	Status: Current	
+	Input: query (qps api link)
+	Desc: jQuery getJSON from qps link, returns JSON that includes list of all
+	St Lucia crimes (over set time period, which will in future be taken from form).
+	Parses through returned JSOn to count certain crimes, displays proportion of crimes
+	on google charts piechart.
+	
+################ Crimeapi.js ################
+
+///See Profile.js descriptions below
+//QPS api jQuery code, separate from general javascript for profile.html.
+Not currently working due to google charts asynchronousity requirements.
+Currently integrated with profile2.js in profile.js
+
+################ Profile2.js ################
+///See above, Profile.js below
+
+################ Crimedata.js ################	
+///Deprecated. Contains some functions from Deco3800 prototype to be used for querying qps api.	
+
+------------------------------CSS Scripts---------------------------------------
+
+profile_style_1.css
+	Desc: Style for profile.html
+	
+index_style_1.css
+	Desc: Style for index.html
+	
+------------------------------PHP Scripts---------------------------------------
+
+autocomplete.php
+	Status: Current
+	Desc: Takes incomplete searchbar form data from index.html/profile.html and queries
+	census database for possible suburb name matches
+
+crimemapProxy.php
+	Status: Not current
+	Desc: Needed for crimemap.info api access. 
+

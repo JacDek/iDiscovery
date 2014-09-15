@@ -1,0 +1,57 @@
+<!-- HTML 5 -->
+<!DOCTYPE html>
+
+<HTML>
+
+<head>  
+  <title>Census Maps</title>  
+  <link rel="stylesheet" type="text/css" media="screen" href="style/index_style_1.css" />  
+	
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrB9IUe0WTnGlyghajlOZw2P9fRv87DCI">
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	
+  <!-- <script type="text/javascript" src="scripts/crimedata_index_testing.js"></script> -->
+  <script type="text/javascript" src="scripts/index.js"></script>
+  <script type="text/javascript" src="scripts/crimedata.js"></script>
+	
+    
+</head> 
+
+
+
+<body>
+	
+  <header id="head_banner">
+	<a href="http://censusmaps.info"><img src="res/title.png" id="title"></img></a>
+		
+	  <div id="suburbForm" >
+		<form action="ajax/autocomplete.php" method="GET">
+		  <div class="ui-widget">
+		    <input id="name" name="name">
+		  </div>
+		  <input type="submit">
+		</form>
+	  </div>
+		
+	  <div id="menubar">
+		<div id="menu_items">
+		  <ul id="menu">
+			<li class="current"><a href="index.html">Home</a></li>
+			<li><a href="profile.html">Suburb Profile</a></li>
+		  </ul>
+		</div><!--close menu-->
+	  </div><!--close menubar-->	
+
+  </header>
+	
+  <div id="map_container"></div>
+	
+  <div id="map_key"></div>
+
+</body>            
+
+
+
+</HTML>

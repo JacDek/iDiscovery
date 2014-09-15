@@ -1,0 +1,58 @@
+<!-- HTML 5 -->
+<!DOCTYPE html>
+
+<HTML>
+
+<head>  
+  <title>Census Maps: Suburb Profile</title>  
+  <link rel="stylesheet" type="text/css" media="screen" href="style/profile_style_1.css" />
+
+  <script type="text/javascript" src="https://www.google.com/jsapi">
+  </script>
+  
+  <script src="http://code.jquery.com/jquery-2.1.1.js"></script> 
+  <!-- <script type="text/javascript" src="scripts/crimeapi.js"></script> -->
+  <script type="text/javascript" src="scripts/profile.js"></script>
+	
+</head> 
+
+
+
+<body>
+
+  <header id="head_banner">
+	<a href="http://censusmaps.info"><img src="res/title.png" id="title"></img></a>
+		
+	<div id="menubar">
+	  <div id="menu_items">
+		<ul id="menu">
+		  <li class="current"><a href="index.html">Map</a></li>
+		</ul>
+	  </div><!--end menu-->
+	</div><!--close menubar-->	
+		
+	<div id="suburbForm" >
+	  <form action="ajax/autocomplete.php" method="GET" target = "heading">
+		<div class="ui-widget">
+		  <input id="name" name="name">
+		</div>
+		<input type="submit">
+	  </form>
+	</div>
+		
+	<div id ="heading">Profile: ST LUCIA</div>
+		
+  </header>
+	
+	<div id="ratesuburb">
+	  <img src="res/green.jpg"></img>
+	</div>
+	
+	<div id="chart_div"></div>
+	
+	<div id="placeholder"></div>
+	
+</body>            
+
+
+</HTML>
